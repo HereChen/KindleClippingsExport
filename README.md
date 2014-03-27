@@ -1,8 +1,8 @@
 ## Kindle Clippings 导出（MATLAB版）
 
 Author：[HereChen](http://herechen.github.io/)  
-Version：目前尚不可用  
-update：2014-03-27
+Version：可导出数据  
+update：2014-03-28
 
 ###项目描述
 
