@@ -176,15 +176,13 @@ for i=1:sizeClip
     tempTime2ch = tempTime2;
     tempTime2 = time2str(tempTime2);        % save time2
     
-    tempTimeSeg = textscan(tempTime,'%s',...
-        'delimiter',{'年','月','日星期',','});
-    if length(tempTimeSeg{1,1}) > 2         % Chinese-format
+    if  ~isempty(strfind(tempTime,'年'))    % Chinese-format
         tempTime12 = strrep(tempTime,tempTime2,'');
         tempTime12 = textscan(tempTime12,'%s','delimiter',{'年','月','日'});
         tempTime12 = tempTime12{1,1};
         
         tptempTime1 = cell(3,1);
-        tptempTime1{1} = tempTime12{1};   % year
+        tptempTime1{1} = tempTime12{1};     % year
         % date month
         for zr=2:3
             tptempTime1{zr} = tempTime12{zr};
@@ -192,10 +190,7 @@ for i=1:sizeClip
                 tptempTime1{zr} = strcat('0',tptempTime1{zr,1});
             end
         end
-        
-        ampm = tempTime12{end,1};
-        ampm = ampm(end-1:end);             % am pm
-        if strcmp(ampm,'下午')
+        if  ~isempty(strfind(tempTime,'下午'))
             tempTime2ch{1} = num2str(str2double(tempTime2ch{1})+12);
             tempTime2 = time2str(tempTime2ch);  % save time2
         end
@@ -254,6 +249,11 @@ if nargout==1, varargout{1} = clipExport; end
 %% subfunction
 
     function timestr = time2str(timehms)
+        for g=1:3
+            if length(timehms{1})~=2
+                timehms{g} = strcat('0',timehms{g});
+            end
+        end
         timestr = strcat(timehms{1},':',timehms{2},':',timehms{3});
     end
 
@@ -280,5 +280,3 @@ if nargout==1, varargout{1} = clipExport; end
     end
 
 end
-
-
