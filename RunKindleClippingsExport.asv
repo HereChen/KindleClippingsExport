@@ -1,0 +1,30 @@
+% 2014/03/27 01:01:30
+% by HereChen
+
+clear;clc
+slCharacterEncoding('GBK')
+%%
+clipFile = 'My Clippings.txt';              % 读取文件
+clipExport = 'ClipExportWang.txt';              % 导出文件名
+varargin = {'encoding', 'UTF-8'};
+clipExport = KindleClippingsExport(clipFile,clipExport,varargin);
+
+%%
+tempTime = '2014年3月2日星期日 下午10:29:20';
+% tempTime = 'Friday, 14 March 2014 12:05:02';
+% tempTimeSplit = textscan(tempTime,'%s','delimiter',...
+%         {'年','月','日星期',','});
+
+tempTime2 = regexp(tempTime,'(\d+):(\d+):(\d+)','tokens');
+tempTime2 = tempTime2{1,1};
+str2double(tempTime2{1})+12
+tempTime2 = strcat(tempTime2{1},':',tempTime2{2},':',tempTime2{3});
+
+tempTime12 = textscan(tempTime,'%s','delimiter',{'年','月','日'});
+tempTime12 = tempTime12{1,1};
+
+tptempTime1{3,1} = tempTime12{3};          % date
+tptempTime1{2,1} = tempTime12{2};      % month
+tptempTime1{1,1} = tempTime12{1};  % year
+ampm = tempTime12{5};
+ampm = ampm(1:2);

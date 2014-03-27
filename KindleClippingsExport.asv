@@ -28,7 +28,7 @@ function varargout = KindleClippingsExport(clipImportFile,clipExportFile,varargi
 %   HereChen
 %   (chenlei.here@gmail.com)(herechen.github.io)
 %   Copyright 2014 HereChen
-%   $Date: 2014/03/28 00:35:45 $
+%   $Date: 2014/03/27 20:41:40 $
 
 %% deault settings
 
@@ -135,7 +135,7 @@ for i=1:sizeClip
         tempAuthor = tempClip(1:indexAuthor(end)-1);
         tempTitle = tempClip(indexAuthor(end)+1:end-1);
     else
-        tempAuthor = '';
+        tempAuthor = 
         tempTitle = tempClip;
     end
     
@@ -223,20 +223,19 @@ tempNoClip = cell(sizeClip,1);
 [tempNoClip{:}] = deal(clipExport{:,3});
 tempNoClipIndex = strcmp(tempNoClip,'');
 tempWithClipIndex = setdiff(1:sizeClip,find(tempNoClipIndex==1));
-
-sizeClip = length(tempWithClipIndex);
-tempClip = cell(sizeClip,7);
-for k=1:sizeClip
-    [tempClip{k,:}] = deal(clipExport{tempWithClipIndex(k),:});
-end
+tempWithClipIndex = tempWithClipIndex';
+tempClip = clipExport{tempWithClipIndex,:};
 clipExport = tempClip;
+
+% for k=1:sizeClip
+%     
+% end
 
 %% varargout
 
 if nargout==1, varargout{1} = clipExport; end
 
 %% export txt-file
-% not available
 
 % fileWrite = fopen(clipExportFile,'a+','n',encoding);
 % formarSpec = {'> %s\n\n',...
