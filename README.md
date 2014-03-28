@@ -17,7 +17,7 @@ update：2014-03-28
 ###使用描述
 
 调用形式  
-`clipExport = KindleClippingsExport(clipImportFile, clipExportFile,varargin)`
+`clipExport = KindleClippingsExport(clipImportFile, clipExportFile,varargin)`  
 其中， `clipExport` 和 `varargin` 是可选参数。
 
 
@@ -43,7 +43,7 @@ update：2014-03-28
 ###项目文件
 
 `RunKindleClippingsExport.m` -- 一个导出demo  
-`KindleClippingsExport.m` -- 导出函数
+`KindleClippingsExport.m` -- 导出函数  
 `My Clippings.txt` -- 样本笔记
 
 ###Thanks
