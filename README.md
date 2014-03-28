@@ -1,7 +1,11 @@
 ## Kindle Clippings 导出（MATLAB版）
 
 Author：[HereChen](http://herechen.github.io/)  
+<<<<<<< HEAD
 Version：2.0  
+=======
+Version：可导出数据  
+>>>>>>> 4779409d5e0d74839cea88ddebf84d4686a6458e
 update：2014-03-28
 
 ###项目描述
@@ -52,4 +56,11 @@ update：2014-03-28
 
 另外，此版尚未作更多的测试，若你发现 Bug，诚请相告，thanks in advance！
 
+<<<<<<< HEAD
 HereChen chenlei.here@gmail.com
+=======
+- 笔记类型的提取
+- 按条件提取笔记
+- 笔记提取和导出部分分离
+- 添加参数 varargin，实现可选参数，比如，文件读取编码，导出条件
+>>>>>>> 4779409d5e0d74839cea88ddebf84d4686a6458e

@@ -138,7 +138,7 @@ end
 
 %% detail splitting
 % bookname author clipping clipping-style location time1 time2
-% time1 mm-dd-yy, time2 hh-mm-ss
+% time1 mm-dd-yy, time2 hh-mm-ssgit pull
 
 clipExport = cell(sizeClip,7);
 [clipExport{:,3}] = deal(clipText{:,3});    % save clippings
