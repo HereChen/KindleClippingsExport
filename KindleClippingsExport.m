@@ -32,7 +32,7 @@ function varargout = KindleClippingsExport(clipImportFile,clipExportFile,varargi
 %   HereChen
 %   (chenlei.here@gmail.com)(herechen.github.io)
 %   Copyright 2014 HereChen
-%   $Date: 2014/03/28 00:35:45 $
+%   $Date: 2014/03/29 12:20:46 $
 
 %% deault settings
 
@@ -157,8 +157,8 @@ for i=1:sizeClip
             tempTitle = tempClip;
         end
     catch
-        tempAuthor = '';
-        tempTitle = '';
+        warning('Book-name or author save error.');
+        return;
     end
     clipExport{i,1} = tempTitle;            % save bookname
     clipExport{i,2} = tempAuthor;           % save author
@@ -169,9 +169,14 @@ for i=1:sizeClip
         % ('This ',' at') - Article
         tempClip = clipText{i,2};
         tempClipStyle = textscan(tempClip,'%s','delimiter',...
-            {'我的',' 位置','的',' |','Your ',' at','This '});
-        clipExport{i,4} = tempClipStyle{1,1}{2};
-
+            {'我的',' 位置','的',' |','Your ',' at','This '}); 
+    catch
+        warning('Clipping style save error.');
+        return;
+    end
+    clipExport{i,4} = tempClipStyle{1,1}{2};% save clip-style
+    
+    try
         % save location
         % if double page spread or more.
         tempLocation = regexp(tempClip,'(\d+)-(\d+)','tokens');
@@ -184,7 +189,8 @@ for i=1:sizeClip
             tempLocation = strcat(tempLocation{1},'-',tempLocation{2});
         end
     catch
-        tempLocation = '';
+        warning('Location save error.');
+        return;
     end
     clipExport{i,5} = tempLocation;         % save location
     
@@ -235,8 +241,8 @@ for i=1:sizeClip
             tempTime1 = date2str(tptempTime1);          % save time1
         end
     catch
-        tempTime1 = '';
-        tempTime2 = '';
+        warning('Time save error.');
+        return;
     end
     clipExport{i,6} = tempTime1;            % save time1
     clipExport{i,7} = tempTime2;            % save time2
@@ -278,6 +284,11 @@ for k=1:3
         warning('Clipping filter wrong.');
         return;
     end
+end
+
+if sizeClip==0                              % break if no clipping
+    warning('There is no clipping.');
+    return;
 end
 
 %% varargout

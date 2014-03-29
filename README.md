@@ -1,8 +1,8 @@
 ## Kindle Clippings 导出（MATLAB版）
 
 Author：[HereChen](http://herechen.github.io/)  
-Version：2.0   
-update：2014-03-28
+Version：2.0.1   
+update：2014-03-29
 
 ###项目描述
 
@@ -19,6 +19,9 @@ update：2014-03-28
 调用形式  
 `clipExport = KindleClippingsExport(clipImportFile, clipExportFile,varargin)`  
 其中， `clipExport` 和 `varargin` 是可选参数。
+
+默认调用形式  
+`KindleClippingsExport(clipFile,clipExport,'bookname','','author','','clipstyle','','encoding','UTF-8')`
 
 
 `clipExport` -- 导出数据  
@@ -45,6 +48,12 @@ update：2014-03-28
 `RunKindleClippingsExport.m` -- 一个导出demo  
 `KindleClippingsExport.m` -- 导出函数  
 `My Clippings.txt` -- 样本笔记
+
+###更新记录
+
+2014/03/29 12:20:46  
+1 添加筛选后如果无剪贴的警示输出。  
+2 各个属性分离错误时的警示输出。
 
 ###Thanks
 
