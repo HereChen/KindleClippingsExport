@@ -43,7 +43,7 @@ update：2014-03-29
 	KindleClippingsExport(clipImportFile,clipExportFile,...
     	'bookname','尼采');
 
-    导出效果发布后效果：[http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/](http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/)。
+导出效果发布后效果：[http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/](http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/)。
 
 ###项目文件
 
