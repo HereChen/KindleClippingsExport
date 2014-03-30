@@ -6,7 +6,7 @@ update：2014-03-29
 
 ###项目描述
 
-本项目旨在提取 Kindle 笔记信息，并作分离，然后实现格式化导出。这里的格式化将针对 Markdown，但最终期望是实现笔记的提取以及按条件提取，并且可以自定义导出文本格式。
+本项目旨在提取 Kindle 笔记信息，并作分离，然后实现格式化导出。这里的格式化将针对 Markdown，目的在于导出之后可以直接发布。但可以通过修改数据导出部分来实现自定义数据导出。
 
 ###功能描述
 
@@ -42,6 +42,8 @@ update：2014-03-29
 	clipExportFile = 'ClipExportZhouGuoPing.txt';
 	KindleClippingsExport(clipImportFile,clipExportFile,...
     	'bookname','尼采');
+
+    导出效果发布后效果：[http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/](http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/)。
 
 ###项目文件
 
