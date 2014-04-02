@@ -2,7 +2,7 @@
 
 Author：[HereChen](http://herechen.github.io/)  
 Version：2.0.2   
-update：2014-03-29
+update：2014-04-02
 
 ###项目描述
 
