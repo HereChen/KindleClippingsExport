@@ -233,8 +233,15 @@ for i=1:sizeClip
             tempTime1 = strrep(tempTime,tempTime2,'');
             tempTime1 = textscan(tempTime1,'%s','delimiter',',');
             tempTime1 = tempTime1{1,1}{2};
-            tptempTime1{3,1} = tempTime1(1:2);          % date
-            tptempTime1{2,1} = tempTime1(4:end-6);      % month
+            temp = tempTime1(regexp(tempTime1,'\d'));
+            if length(temp)~=6
+                tptempTime1{3,1} = tempTime1(1);        % date-d
+                tptempTime1{3,1} = strcat('0',tptempTime1{3,1});
+                tptempTime1{2,1} = tempTime1(3:end-6);  % month
+            else
+                tptempTime1{3,1} = tempTime1(1:2);      % date-dd
+                tptempTime1{2,1} = tempTime1(4:end-6);  % month
+            end
             tptempTime1{1,1} = tempTime1(end-4:end-1);  % year
             % convert month to num
             tptempTime1{2,1} = month2num(tptempTime1{2,1});
