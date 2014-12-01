@@ -30,9 +30,9 @@ function varargout = KindleClippingsExport(clipImportFile,clipExportFile,varargi
 %   set encoding: slCharacterEncoding('GBK') or 'UTF-8'
 
 %   HereChen
-%   (chenlei.here@gmail.com)(herechen.github.io)
+%   (chenlei.here@gmail.com)(http://herechen.github.io)
 %   Copyright 2014 HereChen
-%   $Date: 2014/03/29 12:20:46 $
+%   $Date: 2014/12/1 18:44:19 $
 
 %% deault settings
 
