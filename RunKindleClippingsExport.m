@@ -1,10 +1,11 @@
-% 2014/03/27 01:01:30
+% 2014/12/1 18:37:30
 % by HereChen
 
 clear;clc
-slCharacterEncoding('GBK')
+
 %%
-clipImportFile = 'My Clippings.txt';                  % ¶ÁÈ¡ÎÄ¼ş
-clipExportFile = 'ClipExportZhouGuoPing.txt';         % µ¼³öÎÄ¼şÃû
+
+clipImportFile = 'My Clippings.txt';                  % è¯»å–æ–‡ä»¶
+clipExportFile = 'ClipExportZhouGuoPing.txt';         % å¯¼å‡ºæ–‡ä»¶å
 KindleClippingsExport(clipImportFile,clipExportFile,...
-    'bookname','Äá²É');
+    'bookname','å°¼é‡‡');

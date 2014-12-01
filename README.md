@@ -1,21 +1,21 @@
 ## Kindle Clippings 导出（MATLAB版）
 
 Author：[HereChen](http://herechen.github.io/)  
-Version：2.0.2   
-update：2014-04-02
+Version：2.0.3   
+update：2014-12-01
 
-###项目描述
+### 项目描述
 
 本项目旨在提取 Kindle 笔记信息（Kindle Paperwhite），并作分离，然后实现格式化导出。这里的格式化将针对 Markdown，目的在于导出之后可以直接发布。但可以通过修改数据导出部分来实现自定义数据导出。
 
-###功能描述
+### 功能描述
 
 - 将笔记分为 bookname author clipping clipping-style location time1 time2，即实现各内容的分离。
 - 可以作为数据集导出，如果你需要自定义格式化导出 txt，可以删除其中文件导出部分或自己修改。
 - 可以实现通过作者、书名的关键词筛选，同时也可以实现笔记类型的筛选。筛选条件可以是多个。
 - 语言支持中文和英文（涉及到根据关键词分离数据，故存在语言支持的限制）。
 
-###使用描述
+### 使用描述
 
 调用形式  
 `clipExport = KindleClippingsExport(clipImportFile, clipExportFile,varargin)`  
@@ -37,7 +37,7 @@ update：2014-04-02
 
 每个参数后面设置对应值。
 
-###示例
+### 示例
 
 	clipImportFile = 'My Clippings.txt';
 	clipExportFile = 'ClipExportZhouGuoPing.txt';
@@ -46,13 +46,13 @@ update：2014-04-02
 
 导出效果发布后效果：[http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/](http://herechen.github.io/zhouguoping-Nietzsche-on-turning-point-of-century/)。
 
-###项目文件
+### 项目文件
 
 `RunKindleClippingsExport.m` -- 一个导出demo  
 `KindleClippingsExport.m` -- 导出函数  
 `My Clippings.txt` -- 样本笔记
 
-###设计思路
+### 设计思路
 
 Kindle 笔记的提取依赖于其格式和关键词，以一个实际示例来展示。
 
@@ -73,7 +73,7 @@ Kindle 笔记的提取依赖于其格式和关键词，以一个实际示例来�
 
 Kindle 系统语言为中文时类似。
 
-###更新记录
+### 更新记录
 
 2014/04/02 16:21:16  
 1 修正日期格式导出错误
@@ -82,7 +82,7 @@ Kindle 系统语言为中文时类似。
 1 添加筛选后如果无剪贴的警示输出。  
 2 各个属性分离错误时的警示输出。
 
-###Thanks
+### Thanks
 
 感谢 [Unkeltao](http://www.unkeltao.com/) 提供在前期数据分离提供的建设性思路。Unkeltao 有个 Ruby 版的笔记导出，值得推荐，[地址](https://github.com/UnkelTao/kindle-note-format)。毕竟 MATLAB 并不是免费的。
 
