@@ -1,7 +1,8 @@
 % 2014/12/1 18:37:30
 % by HereChen
 
-clear;clc
+clear;
+clc;
 
 %%
 

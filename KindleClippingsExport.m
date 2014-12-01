@@ -23,7 +23,7 @@ function varargout = KindleClippingsExport(clipImportFile,clipExportFile,varargi
 %   clipImportFile = 'My Clippings.txt';
 %   clipExportFile = 'ClipExportZhouGuoPing.txt';
 %   KindleClippingsExport(clipImportFile,clipExportFile,...
-%       'bookname','Äá²É');
+%       'bookname','å°¼é‡‡');
 %
 %   In case of encoding matters...
 %   check encoding: slCharacterEncoding()
@@ -77,8 +77,8 @@ segClip = '==========';
 %% read every line of clipImportFile
 
 fileID = fopen(clipImportFile,'r','n',encoding);
-formatSpec = '%s';                          % ¶ÁÈ¡¸ñÊ½
-clippings = textscan(fileID,formatSpec,...  % ¶ÁÈ¡£¬ºöÂÔ '='
+formatSpec = '%s';                          % è¯»å–æ ¼å¼
+clippings = textscan(fileID,formatSpec,...  % è¯»å–ï¼Œå¿½ç•¥ '='
     'delimiter','\n');
 fclose(fileID);
 
@@ -165,11 +165,11 @@ for i=1:sizeClip
     
     try
         % save clipping-style
-        % split by £¨'ÎÒµÄ',' Î»ÖÃ',) or ('µÄ',' |') or ('Your ',' at')
+        % split by ï¼ˆ'æˆ‘çš„',' ä½ç½®',) or ('çš„',' |') or ('Your ',' at')
         % ('This ',' at') - Article
         tempClip = clipText{i,2};
         tempClipStyle = textscan(tempClip,'%s','delimiter',...
-            {'ÎÒµÄ',' Î»ÖÃ','µÄ',' |','Your ',' at','This '}); 
+            {'æˆ‘çš„',' ä½ç½®','çš„',' |','Your ',' at','This '}); 
     catch
         warning('Clipping style save error.');
         return;
@@ -196,10 +196,10 @@ for i=1:sizeClip
     
     try
         % save time yy-mm-dd hh-mm-ss
-        % split by 'Ìí¼ÓÓÚ' or 'Added on' - time
-        % split by ('Äê','ÔÂ','ÈÕÐÇÆÚ') or (', ') - time1 time2
+        % split by 'æ·»åŠ äºŽ' or 'Added on' - time
+        % split by ('å¹´','æœˆ','æ—¥æ˜ŸæœŸ') or (', ') - time1 time2
         tempTime = textscan(tempClip,'%s','delimiter',...
-            {'Ìí¼ÓÓÚ','Added on'});
+            {'æ·»åŠ äºŽ','Added on'});
         tempTime = tempTime{1,1};
         tempTime = tempTime{end};
 
@@ -208,10 +208,10 @@ for i=1:sizeClip
         tempTime2ch = tempTime2;
         tempTime2 = time2str(tempTime2);        % save time2
 
-        if  ~isempty(strfind(tempTime,'Äê'))    % Chinese-format
+        if  ~isempty(strfind(tempTime,'å¹´'))    % Chinese-format
             tempTime12 = strrep(tempTime,tempTime2,'');
             tempTime12 = textscan(tempTime12,'%s','delimiter',...
-                {'Äê','ÔÂ','ÈÕ'});
+                {'å¹´','æœˆ','æ—¥'});
             tempTime12 = tempTime12{1,1};
 
             tptempTime1 = cell(3,1);
@@ -223,7 +223,7 @@ for i=1:sizeClip
                     tptempTime1{zr} = strcat('0',tptempTime1{zr,1});
                 end
             end
-            if  ~isempty(strfind(tempTime,'ÏÂÎç'))
+            if  ~isempty(strfind(tempTime,'ä¸‹åˆ'))
                 tempTime2ch{1} = num2str(str2double(tempTime2ch{1})+12);
                 tempTime2 = time2str(tempTime2ch);  % save time2
             end
@@ -306,7 +306,7 @@ if nargout==1, varargout{1} = clipExport; end
 
 fileWrite = fopen(clipExportFile,'a+','n',encoding);
 formarSpec = {'> %s\n\n',...
-    '<p style="text-align:right;padding:0 0">%s # %s, %s</p>\n'};
+    '<p>%s # %s, %s</p>\n'};
 sizeClip = size(clipExport,1);
 for i=1:sizeClip
     fprintf(fileWrite, '\n');
